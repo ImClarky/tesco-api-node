@@ -12,9 +12,15 @@ module.exports = function(api_key) {
 
   self.getStores = function(options) {
     return new Promise(function(resolve, reject) {
-      //Do Some Checking
-
       var url = compileURL("locations/search", options)
+
+      request(url, function(err, status, response) {
+        if (err) {
+          reject(err);
+        } else if (status.statuscode !== 200) {
+          resolve(response);
+        }
+      })
     });
   };
 
