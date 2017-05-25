@@ -20,19 +20,35 @@ module.exports = function(api_key) {
         } else if (status.statuscode !== 200) {
           resolve(response);
         }
-      })
+      });
     });
   };
 
   self.getProductData = function(options) {
     return new Promise(function(resolve, reject) {
+      var url = compileURL("", options)
 
+      request(url, function(err, status, response) {
+        if (err) {
+          reject(err);
+        } else if (status.statuscode !== 200) {
+          resolve(response);
+        }
+      });
     });
   };
 
   self.grocerySearch = function(options) {
     return new Promise(function(resolve, reject) {
+      var url = compileURL("", options)
 
+      request(url, function(err, status, response) {
+        if (err) {
+          reject(err);
+        } else if (status.statuscode !== 200) {
+          resolve(response);
+        }
+      });
     });
   };
 
