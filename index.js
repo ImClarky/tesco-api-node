@@ -17,7 +17,7 @@ module.exports = function(api_key) {
       request(url, function(err, status, response) {
         if (err) {
           reject(err);
-        } else if (status.statuscode !== 200) {
+        } else if (status.statusCode !== 200) {
           resolve(response);
         }
       });
@@ -31,7 +31,7 @@ module.exports = function(api_key) {
       request(url, function(err, status, response) {
         if (err) {
           reject(err);
-        } else if (status.statuscode !== 200) {
+        } else if (status.statusCode !== 200) {
           resolve(response);
         }
       });
@@ -45,7 +45,7 @@ module.exports = function(api_key) {
       request(url, function(err, status, response) {
         if (err) {
           reject(err);
-        } else if (status.statuscode !== 200) {
+        } else if (status.statusCode !== 200) {
           resolve(response);
         }
       });
