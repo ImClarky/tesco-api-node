@@ -6,6 +6,7 @@ More information about the API can be found out at their website: https://devpor
 ##
 
 ### Installation
+**Package is not currently on NPM, it will be shortly**
 ```
 npm install tesco-api-node
 ```
