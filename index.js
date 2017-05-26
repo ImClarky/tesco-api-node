@@ -1,56 +1,49 @@
 var request = require('request')
 
-module.exports = function(api_key) {
+module.exports = function(api_key, proxy) {
   var self = this;
-  var self.baseURL = "https://dev.tescolabs.com/";
+  self.baseURL = "https://dev.tescolabs.com/";
+
+  self.request = {
+    url: null,
+    headers: {
+      "Ocp-Apim-Subscription-Key": null
+    },
+    proxy: proxy
+  }
 
   if (!api_key) {
     throw new Error("API Key must be provided");
   } else {
-    self.api_key = api_key;
+    self.request.headers["Ocp-Apim-Subscription-Key"] = api_key
   }
 
   self.getStores = function(options) {
-    return new Promise(function(resolve, reject) {
-      var url = compileURL("locations/search", options)
-
-      request(url, function(err, status, response) {
-        if (err) {
-          reject(err);
-        } else if (status.statusCode !== 200) {
-          resolve(response);
-        }
-      });
-    });
+    self.request.url = compileURL("locations/search", options)
+    return callAPI();
   };
 
   self.getProductData = function(options) {
-    return new Promise(function(resolve, reject) {
-      var url = compileURL("", options)
-
-      request(url, function(err, status, response) {
-        if (err) {
-          reject(err);
-        } else if (status.statusCode !== 200) {
-          resolve(response);
-        }
-      });
-    });
+    self.request.url = compileURL("product", options)
+    return callAPI();
   };
 
   self.grocerySearch = function(options) {
-    return new Promise(function(resolve, reject) {
-      var url = compileURL("", options)
+    self.request.url = compileURL("grocery/products", options);
+    return callAPI();
+  };
 
-      request(url, function(err, status, response) {
+  var callAPI = function() {
+    return new Promise(function(resolve, reject) {
+      request(self.request, function(err, status, response) {
         if (err) {
           reject(err);
-        } else if (status.statusCode !== 200) {
+        } else {
           resolve(response);
         }
-      });
-    });
-  };
+      })
+    })
+  }
 
   var compileURL = function(uri, params) {
     var s = self.baseURL + uri;

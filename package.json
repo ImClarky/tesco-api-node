@@ -4,6 +4,7 @@
   "description": "A NodeJS Wrapper for the Tesco Supermarket API",
   "main": "index.js",
   "scripts": {
+    "smth": "node ./test/test_run.js",
     "test": "node_modules/.bin/mocha -w"
   },
   "author": "Sean Clark",
