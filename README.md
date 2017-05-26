@@ -1,18 +1,18 @@
-##Tesco API for NodeJS
+## Tesco API for NodeJS
 
 This package is a small and simple wrapper for the Tesco Supermarket's API which returns the results as a Promise.
 
 More information about the API can be found out at their website: https://devportal.tescolabs.com/
 ##
 
-###Installation
+### Installation
 ```
 npm install tesco-api-node
 ```
-####Requirements
+#### Requirements
 - **API Key:** This can be obtained by creating a profile on the Dev Portal, and [subscribing](https://devportal.tescolabs.com/products/56c73300d73fa303ed060001) to the APIs.
 ##
-###Usage
+### Usage
 Firstly, `require` the package in your script:
 
 ```js
@@ -34,7 +34,7 @@ and I encounterd `ECONNREFUSED` errors until I provided a proxy in the request h
 var instance = new TescoAPI("mysuperlongAPIKey1234567890", "http://myproxyaddress.com:8080");
 ```
 
-####Store location
+#### Store location
 This API allows you to search for stores and get information like Name, Branch Number, Contact Details, Opening Hours and Facilities.
 
 To access this API, use the `getStores()` function, like so:
@@ -45,7 +45,7 @@ instance.getStores(options)
   });
 ```
 
-####Grocery Search
+#### Grocery Search
 This API, as the name suggests, allows you to search for groceries and receive data like Name, Description, Price, Promotions etc.
 
 To access this API, use the `grocerySearch()` function, like so:
@@ -55,7 +55,7 @@ instance.grocerySearch(options)
     //Do some stuff
   });
 ```
-####Product Data
+#### Product Data
 This API allows you to get more information about a particular product, such as the Brand, Description, Marketing Text, Packaging dimensions etc.
 
 To access the API, use the `getProductData()` function, like so:
@@ -65,7 +65,7 @@ instance.getProductData(options)
     //Do some stuff
   });
 ```
-####Options
+#### Options
 The options parameter is required by all of the above functions as it provides the API with the query parameters.
 
 The options parameter should be a javascript object, with the data as key-value pairs, for example:
@@ -104,7 +104,7 @@ var options = {
 ```
 **Note:** The field options are currently only supported in the Store Location API.
 
-#####Known Limitations
+##### Known Limitations
 There are a few minor limitations regarding the options parameter:
 
 - Store Location API
@@ -117,9 +117,9 @@ There are a few minor limitations regarding the options parameter:
 
 [A full cheatsheet of options can be found here](./option-cheatsheet.md).
 
-####Examples
+#### Examples
 
-#####Store Location API - Looking for Tesco store names, beginning with C, that have ATMs
+##### Store Location API - Looking for Tesco store names, beginning with C, that have ATMs
 ```js
 var TescoAPI = require("tesco-api-node");
 var instance = new TescoAPI("myreallylongapikey1234567890");
@@ -173,6 +173,6 @@ Which produces something like the following:
 
 ```
 ##
-###TODO
+### TODO
 - [ ] Implement further iteration down the options object
 - [ ] Allow multiple options of the same key
