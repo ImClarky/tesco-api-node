@@ -1,6 +1,6 @@
 {
-  "name": "tesco-api",
-  "version": "0.0.1",
+  "name": "tesco-api-node",
+  "version": "1.2.0",
   "description": "A NodeJS Wrapper for the Tesco Supermarket API",
   "main": "index.js",
   "scripts": {
