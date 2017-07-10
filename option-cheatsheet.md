@@ -75,7 +75,7 @@ var options = {
   filter: {
     facilities: [
       "ATM",
-      "DBT,
+      "DBT",
       "PETROL_FILLING_STATION"
     ],
     type: "extra"
@@ -89,7 +89,7 @@ The Like and Filter options allow for `AND` and `AND|OR` operations in the API. 
 ```js
 facilities: [
   "ATM",
-  "DBT
+  "DBT"
 ]
 ```
 
