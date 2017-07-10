@@ -1,12 +1,12 @@
 var assert = require('chai').assert
 var expect = require('chai').expect
 
-var key = "220c65bed15a4151b3c3ad915fb0ceb7"
+var key = YOUR_API_KEY
 var TescoAPI = require('../')
 var compileQuery = require('../lib/compile-query')
 var baseURL = "https://dev.tescolabs.com/"
 
-var api = new TescoAPI(key, "http://globalproxy.dhl.com:8080")
+var api = new TescoAPI(key)
 
 describe("Test Query String Creation", () => {
 
