@@ -10,6 +10,16 @@ This is a cheatsheet of all the options available for each of the APIs.
 | offset | How many results to offset. If no value is provided, the API default is used. *Default: 0* | Non-Negative Integer |
 | query | The search term to query. | Non-Empty String |
 
+### Example Object
+
+```js
+var options = {
+  limit: 10,
+  offset: 20,
+  query: "cereal"
+}
+```
+
 
 ## Product Data API
 
@@ -19,6 +29,19 @@ This is a cheatsheet of all the options available for each of the APIs.
 | tpnb | Tesco Product Number (Base Product) of the product(s) | String, <br> String Array |
 | tpnc | Tesco Product Number (Consumer Unit) of the product(s) | String, <br> String Array |
 | catid | Tesco Catalogue Number of the product(s) | String, <br> String Array |
+
+### Example Object
+
+```js
+var options = {
+  gtin: [
+    "2530221899103",
+    "5321089406604",
+    "5045897533301",
+  ]
+}
+// Note: Above are just random numbers
+```
 
 ## Store Locations API
 
@@ -40,7 +63,39 @@ This is a cheatsheet of all the options available for each of the APIs.
 | like.[key] | These are the same values as the `filter` option above | String, <br> String Array |
 | fields | A list of fields that you want returned. `name` or `altIds.branchNumber` for example.<br>**Note:** the `id` field will always be returned. | String, <br> String Array |
 
-#### Known Facilities
+### Example Object
+
+```js
+var options = {
+  limit: 10,
+  offset: 20,
+  like: {
+    name: "^M"
+  },
+  filter: {
+    facilities: [
+      "ATM",
+      "DBT,
+      "PETROL_FILLING_STATION"
+    ],
+    type: "extra"
+  }
+}
+```
+
+#### Small Note
+The Like and Filter options allow for `AND` and `AND|OR` operations in the API. This has yet to be implemented in this wrapper. Currently the wrapper supports only `AND` statements. For example if you have:
+
+```js
+facilities: [
+  "ATM",
+  "DBT
+]
+```
+
+The wrapper will send a request looking for results with ATM **and** DBT. The `AND|OR` feature is on my to-do list.
+
+### Known Facilities
 Here is a list of all the known facilities:
 
 | Facility | Description |
