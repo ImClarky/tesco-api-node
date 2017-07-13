@@ -84,16 +84,30 @@ var options = {
 ```
 
 #### Small Note
-The Like and Filter options allow for `AND` and `AND|OR` operations in the API. This has yet to be implemented in this wrapper. Currently the wrapper supports only `AND` statements. For example if you have:
+The Like and Filter options allow for `AND` and `AND|OR` operations in the API. This has yet to be implemented properly in this wrapper. In the current state of the module, doing something like:
 
 ```js
 facilities: [
   "ATM",
-  "DBT"
+  "DBT",
+  "PETROL_FILLING_STATION"
 ]
 ```
 
-The wrapper will send a request looking for results with ATM **and** DBT. The `AND|OR` feature is on my to-do list.
+will result in results that have ATM `AND` DBT `AND` PETROL_FILLING_STATION.
+
+However, there is a small hack you can try. For facilities that you want to have an `OR` option, you can add this to the other facility with a comma. Like so:
+
+```js
+facilities: [
+  "CAR_WASH,JET_WASH,HAND_CAR_WASH",
+  "ATM"
+]
+```
+
+***Make sure there are no spaces between the commas***
+
+This will result in results with CAR_WASH `OR` JET_WASH `OR` HAND_CAR_WASH (or a combination), `AND` ATM.
 
 ### Known Facilities
 Here is a list of all the known facilities:
