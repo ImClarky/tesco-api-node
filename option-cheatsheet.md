@@ -96,7 +96,7 @@ facilities: [
 
 will result in results that have ATM `AND` DBT `AND` PETROL_FILLING_STATION.
 
-However, there is a small hack you can try. For facilities that you want to have an `OR` option, you can add this to the other facility with a comma. Like so:
+However, there is a small hack you can try. For facilities that you want to have an `AND|OR` option, you can add them to the other facilities with a comma. For example:
 
 ```js
 facilities: [
@@ -107,7 +107,9 @@ facilities: [
 
 ***Make sure there are no spaces between the commas***
 
-This will result in results with CAR_WASH `OR` JET_WASH `OR` HAND_CAR_WASH (or a combination), `AND` ATM.
+This will result in results with CAR_WASH `AND|OR` JET_WASH `AND|OR` HAND_CAR_WASH, `AND` ATM.
+
+Implementing a proper `AND|OR` system is on my to-do list.
 
 ### Known Facilities
 Here is a list of all the known facilities:
